@@ -47,9 +47,13 @@ class Display {
   }
 
   computar(tipo) {
+    /*Comprobamos si la operación anterior es distinto del operador igual y calculamos*/
     this.tipoOperacion !== "igual" && this.calcular();
+    /*Se asigna el tipo de operador seleccionado*/
     this.tipoOperacion = tipo;
+    //Asigna el valor anterior como el valor actual si el valor actual es nulo o vacio
     this.valorAnterior = this.valorActual || this.valorAnterior;
+    //Reiniciamos el valor actual
     this.valorActual = "";
     this.imprimirValores();
   }

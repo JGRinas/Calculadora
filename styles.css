@@ -1,79 +1,116 @@
-*{
-    box-sizing: border-box;
-    color: #fff;
+* {
+  box-sizing: border-box;
+
+  color: #fff;
 }
 
-body{
-    margin: 0;
-    background-color: #224870;
-    
+body {
+  margin: 0;
+
+  background-image: linear-gradient(
+    to left bottom,
+    #333333,
+    #383637,
+    #3d3939,
+    #413d3a,
+    #41423c
+  );
+
+  overflow-x: hidden;
 }
 
-.container{
-    display: flex;
-    /*centramos el contenido*/
-    justify-content: center;
-    align-items: center;
+.container {
+  display: flex;
+  /*centramos el contenido*/
+  justify-content: center;
+  align-items: center;
 
-    height: 100vh;
+  height: 100vh;
 }
 
-.calculator{
-    display: grid;
-    /*4 columnas con 75px de largo*/
-    grid-template-columns: repeat(4, 75px);
-    /*la primera columna con 160px de alto las demás con 75px de alto*/
-    grid-template-rows: 160px repeat(5, 75px);
-    background-color: #00916e;
-    padding: 15px;
-    border-radius: 32px;
-    box-shadow: 15px 10px 0px 5px #00000033;
+.calculator {
+  display: grid;
+  /*4 columnas con 75px de largo*/
+  grid-template-columns: repeat(4, 75px);
+  /*la primera columna con 160px de alto las demás con 75px de alto*/
+  grid-template-rows: 160px repeat(5, 75px);
+  
+  padding: 15px;
+  border-radius: 32px;
+
+  background-color: #00916e;
+
+  box-shadow: 15px 10px 0px 5px #00000033;
 }
 
-button{
-    cursor: pointer;
-    margin: 5px;
-    padding: 0;
-    border-radius: 32px;
-    font-size: 1.5em;
-    border:none;
-    background-color: #00916e;
-    box-shadow: 5px 5px 10px -3px #00000033, -5px -5px 15px 3px #00ffc11f;
+button {
+  margin: 5px;
+  padding: 0;
+
+  border-radius: 32px;
+  border: none;
+  box-shadow: 5px 5px 10px -3px #00000033, -5px -5px 15px 3px #00ffc11f;
+
+  background-color: #00916e;
+  font-size: 1.5em;
+
+  cursor: pointer;
 }
 
 /*cambia de color al clicarse*/
-button:active{
-    background-color: #006f54;
+button:active {
+  background-color: #006f54;
 }
 
 /*quita la linea al tener focus*/
-button:focus{
-    outline: none;
+button:focus {
+  outline: none;
 }
 
-.col-2{
-    grid-column: span 2;
+.col-2 {
+  grid-column: span 2;
 }
 
-.display{
-    grid-column: 1/-1;
-    padding: 16px;
-    display: flex;
-    margin: 10px 10px 20px;
-    flex-direction: column;
-    align-items: flex-end;
-    background-color: #363636;
-    border-radius: 36px;
-    text-align: right;
-    justify-content: space-between;
-    word-break: break-all;
-    box-shadow: 0px 0px 0px 10px #00000033;
+.display {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  grid-column: 1/-1;
+  text-align: right;
+
+  margin: 10px 10px 20px;
+  padding: 16px;
+  border-radius: 36px;
+
+  background-color: #363636;
+  box-shadow: 0px 0px 0px 10px #00000033;
+  
+  /*especificamos cómo debe romperse los caracteres dentro del elemento si no hay espacio
+  de manera que se ajuste dentro del contenedor*/
+  word-break: break-all;
 }
 
-#valor-actual{
-    font-size: 1.5em;
+#valor-actual {
+  font-size: 1.5em;
 }
 
-#valor-anterior{
-    font-size: 2em;
+#valor-anterior {
+  font-size: 2em;
+}
+
+@media (max-width: 400px) {
+
+    .calculator {
+        grid-template-columns: repeat(4, 55px);
+        grid-template-rows: 130px repeat(5, 55px);
+      }
+
+      #valor-actual {
+        font-size: 1em;
+      }
+      
+      #valor-anterior {
+        font-size: 1.5em;
+      }
 }
