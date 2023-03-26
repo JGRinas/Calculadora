@@ -27,22 +27,33 @@ class Display {
   }
 
   agregarNumero(numero) {
+    //Se verifica que no haya más de un punto decimal
     if (numero === "." && this.valorActual.includes(".")) return;
+    //Se agregan los números ingresados al valor actual
     this.valorActual = this.valorActual.toString() + numero.toString();
     this.imprimirValores();
   }
 
   imprimirValores() {
+    //Se asigna el valor actual
     this.displayValorActual.textContent = this.valorActual;
-    this.displayValorAnterior.textContent = `${this.valorAnterior} ${this.signos[this.tipoOperacion] || ''}`;
+    this.displayValorAnterior.textContent = `${this.valorAnterior} ${
+      this.signos[this.tipoOperacion] || ""
+    }`;
   }
 
   calcular() {
+    /*Convertimos los valores en float */
     const valorAnterior = parseFloat(this.valorAnterior);
     const valorActual = parseFloat(this.valorActual);
 
+    /*Si alguno de los valores no es un numero, se devuelve*/
     if (isNaN(valorActual) || isNaN(valorAnterior)) return;
-    this.valorActual = this.calculadora[this.tipoOperacion](valorAnterior, valorActual);
+    /*Se calcula con el tipo de operación pasado y los valores anterior y actual */
+    this.valorActual = this.calculadora[this.tipoOperacion](
+      valorAnterior,
+      valorActual
+    );
     this.imprimirValores();
   }
 

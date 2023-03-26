@@ -1,3 +1,7 @@
+:root {
+  --calculadora-color: #86181dec;
+}
+
 * {
   box-sizing: border-box;
 
@@ -9,11 +13,11 @@ body {
 
   background-image: linear-gradient(
     to left bottom,
-    #333333,
-    #383637,
-    #3d3939,
-    #413d3a,
-    #41423c
+    #1d232c,
+    #121f24,
+    #0c1b1b,
+    #09160f,
+    #0a0e00
   );
 
   overflow-x: hidden;
@@ -34,11 +38,11 @@ body {
   grid-template-columns: repeat(4, 75px);
   /*la primera columna con 160px de alto las demás con 75px de alto*/
   grid-template-rows: 160px repeat(5, 75px);
-  
-  padding: 15px;
-  border-radius: 32px;
 
-  background-color: #00916e;
+  padding: 25px;
+  border-radius: 15px;
+
+  background-color: var(--calculadora-color);
 
   box-shadow: 15px 10px 0px 5px #00000033;
 }
@@ -49,17 +53,21 @@ button {
 
   border-radius: 32px;
   border: none;
-  box-shadow: 5px 5px 10px -3px #00000033, -5px -5px 15px 3px #00ffc11f;
+  box-shadow: 5px 5px 10px -3px #00000033, -5px -5px 15px 3px #0000000a;
 
-  background-color: #00916e;
+  background-color: var(--calculadora-color);
   font-size: 1.5em;
 
   cursor: pointer;
 }
 
+button:hover {
+  background-color: #911b21ec;
+}
+
 /*cambia de color al clicarse*/
 button:active {
-  background-color: #006f54;
+  background-color: #661317ec;
 }
 
 /*quita la linea al tener focus*/
@@ -79,13 +87,13 @@ button:focus {
   grid-column: 1/-1;
   text-align: right;
 
-  margin: 10px 10px 20px;
+  margin: 5px 5px 15px;
   padding: 16px;
   border-radius: 36px;
 
   background-color: #363636;
-  box-shadow: 0px 0px 0px 10px #00000033;
-  
+  box-shadow: 0px 0px 0px 7px #0000001c;
+
   /*especificamos cómo debe romperse los caracteres dentro del elemento si no hay espacio
   de manera que se ajuste dentro del contenedor*/
   word-break: break-all;
@@ -100,17 +108,16 @@ button:focus {
 }
 
 @media (max-width: 400px) {
+  .calculator {
+    grid-template-columns: repeat(4, 55px);
+    grid-template-rows: 130px repeat(5, 55px);
+  }
 
-    .calculator {
-        grid-template-columns: repeat(4, 55px);
-        grid-template-rows: 130px repeat(5, 55px);
-      }
+  #valor-actual {
+    font-size: 1em;
+  }
 
-      #valor-actual {
-        font-size: 1em;
-      }
-      
-      #valor-anterior {
-        font-size: 1.5em;
-      }
+  #valor-anterior {
+    font-size: 1.5em;
+  }
 }

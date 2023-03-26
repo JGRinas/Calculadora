@@ -4,16 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css">
-    
+    <link rel="stylesheet" href="styles.css" />
+
     <title>Calculadora Simple</title>
   </head>
   <body>
     <main class="container">
       <div class="calculator">
         <div class="display">
-            <div id="valor-anterior"></div>
-            <div id="valor-actual"></div>
+          <div id="valor-anterior"></div>
+          <div id="valor-actual"></div>
         </div>
         <button onclick="display.borrarTodo()" class="col-2">C</button>
         <button onclick="display.borrar()">&larr;</button>
@@ -35,11 +35,10 @@
         <button class="operator" value="igual">=</button>
       </div>
     </main>
-     
+
     <!-- defer carga cuando todos los elementos de la pagina son cargados -->
     <script src="Calculadora.js"></script>
     <script src="Display.js"></script>
     <script src="scripts.js"></script>
-   
   </body>
 </html>
